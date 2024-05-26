@@ -1,7 +1,11 @@
-import React from "react";
+import Sidebar from "./Components/Sidebar/Sidebar";
 
 const App = () => {
-  return <div className="bg-red-500">App</div>;
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
 };
 
 export default App;
