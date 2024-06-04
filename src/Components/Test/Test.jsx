@@ -1,3 +1,6 @@
+import StartTest from "./StartTest";
+import TestInput from "./TestInput";
+
 const Test = () => {
   return (
     <div className="text-[#DBDBEB] mt-6 ml-4">
@@ -15,6 +18,14 @@ const Test = () => {
             </ul>
           </span>
         </div>
+      </div>
+
+      <div>
+        <TestInput />
+      </div>
+
+      <div>
+        <StartTest />
       </div>
     </div>
   );
