@@ -1,7 +1,12 @@
 import StartTest from "./StartTest";
 import TestInput from "./TestInput";
+import { useState } from "react";
 
 const Test = () => {
+  const [provider, setProvider] = useState(null);
+  const [exam, setExam] = useState(null);
+  const [length, setLength] = useState(null);
+
   return (
     <div className="text-[#DBDBEB] mt-6 ml-4">
       <div>
@@ -21,11 +26,15 @@ const Test = () => {
       </div>
 
       <div>
-        <TestInput />
+        <TestInput
+          setTestProvider={setProvider}
+          setExamType={setExam}
+          setExamLength={setLength}
+        />
       </div>
 
-      <div>
-        <StartTest />
+      <div className="flex justify-start">
+        <StartTest provider={provider} name={exam} length={length} />
       </div>
     </div>
   );

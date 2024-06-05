@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { styled } from "@mui/material/styles";
@@ -39,21 +40,24 @@ const CustomMenuProps = {
   },
 };
 
-const TestInput = () => {
-  const [provider, setProvider] = React.useState("");
-  const [exam, setExam] = React.useState("");
-  const [length, setLength] = React.useState("");
+const TestInput = ({ setTestProvider, setExamType, setExamLength }) => {
+  const [provider, setProvider] = React.useState(null);
+  const [exam, setExam] = React.useState(null);
+  const [length, setLength] = React.useState(null);
 
   const handleProviderChange = (event) => {
     setProvider(event.target.value);
+    setTestProvider(event.target.value);
   };
 
   const handleExamChange = (event) => {
     setExam(event.target.value);
+    setExamType(event.target.value);
   };
 
   const handleLengthChange = (event) => {
     setLength(event.target.value);
+    setExamLength(event.target.value);
   };
 
   const selectStyles = {
@@ -92,9 +96,9 @@ const TestInput = () => {
             onChange={handleProviderChange}
             MenuProps={CustomMenuProps}
           >
-            <MenuItem value={1}>Microsoft</MenuItem>
-            <MenuItem value={2}>Amazon</MenuItem>
-            <MenuItem value={3}>Google</MenuItem>
+            <MenuItem value={"Microsoft"}>Microsoft</MenuItem>
+            <MenuItem value={"Amazon"}>Amazon</MenuItem>
+            <MenuItem value={"Google"}>Google</MenuItem>
           </CustomSelect>
         </FormControl>
 
@@ -110,10 +114,10 @@ const TestInput = () => {
             onChange={handleExamChange}
             MenuProps={CustomMenuProps}
           >
-            <MenuItem value={1}>AZ-120</MenuItem>
-            <MenuItem value={2}>AZ-140</MenuItem>
-            <MenuItem value={3}>SC-900</MenuItem>
-            <MenuItem value={4}>AI-900</MenuItem>
+            <MenuItem value={"AZ-120"}>AZ-120</MenuItem>
+            <MenuItem value={"AZ-140"}>AZ-140</MenuItem>
+            <MenuItem value={"SC-900"}>SC-900</MenuItem>
+            <MenuItem value={"AI-900"}>AI-900</MenuItem>
           </CustomSelect>
         </FormControl>
 
@@ -127,10 +131,10 @@ const TestInput = () => {
             onChange={handleLengthChange}
             MenuProps={CustomMenuProps}
           >
-            <MenuItem value={1}>5</MenuItem>
-            <MenuItem value={2}>10</MenuItem>
-            <MenuItem value={3}>20</MenuItem>
-            <MenuItem value={4}>50</MenuItem>
+            <MenuItem value={5}>5</MenuItem>
+            <MenuItem value={10}>10</MenuItem>
+            <MenuItem value={20}>20</MenuItem>
+            <MenuItem value={50}>50</MenuItem>
           </CustomSelect>
         </FormControl>
       </div>
