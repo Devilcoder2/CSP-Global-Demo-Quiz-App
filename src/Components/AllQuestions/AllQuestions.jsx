@@ -1,5 +1,5 @@
 const AllQuestions = () => {
-  return <div>AllQuestions</div>;
+  return <div>Akash</div>;
 };
 
 export default AllQuestions;
