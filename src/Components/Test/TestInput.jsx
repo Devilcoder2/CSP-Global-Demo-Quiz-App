@@ -78,12 +78,12 @@ const TestInput = ({ setTestProvider, setExamType, setExamLength }) => {
       color: "#696CFF",
       opacity: "100%",
     },
-    width: "460px",
+    width: "320px",
   };
 
   return (
-    <div className="bg-[#2B2C40] mt-16 w-[95%] h-24 text-[#DBDBEB] flex justify-center items-center rounded-xl">
-      <div className="space-x-8 ">
+    <div className="bg-[#2B2C40] mt-16 w-[90%] h-24 text-[#DBDBEB] flex justify-center items-center rounded-xl">
+      <div className="space-x-8 mb-2 ">
         <FormControl fullWidth sx={selectStyles} margin="normal">
           <InputLabel id="provider-select-label">
             Select Certification Providers
