@@ -31,7 +31,7 @@ const App = () => {
         <Sidebar />
       </div>
 
-      <div className="bg-[#2B2C40] text-[#DBDBEB] px-4  overflow-y-hidden w-[200px] ml-[1270px] mb-6 mt-[20px] h-16 rounded-lg flex space-x-5 justify-center ">
+      <div className="bg-[#2B2C40]  text-[#DBDBEB] px-4  overflow-y-hidden w-[200px] ml-[1270px] mb-6 mt-[20px] h-16 rounded-lg flex space-x-5 justify-center ">
         <div
           className="pt-3 hover:cursor-pointer"
           onClick={notificationHandler}
