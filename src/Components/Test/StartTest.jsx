@@ -13,7 +13,7 @@ const StartTest = ({ provider, name, length }) => {
           className={`px-5 py-3 text-lg mt-10 font-semibold rounded-lg transition-transform duration-100 cursor-pointer
             ${
               !isAllPresent
-                ? "bg-gray-400 cursor-not-allowed"
+                ? "bg-gray-400 hover:cursor-not-allowed"
                 : "bg-[#696CFF] hover:bg-[#5c5ee7] active:translate-y-1 active:scale-95"
             }
           `}
