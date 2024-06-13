@@ -7,6 +7,7 @@ import Test from "./Components/Test/Test.jsx";
 import AllQuestions from "./Components/AllQuestions/AllQuestions.jsx";
 import User from "./Components/User/User.jsx";
 import LiveTest from "./Components/Test/LiveTest.jsx";
+import Result from "./Components/User/Result.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/user",
         element: <User theme="dark" />,
+      },
+      {
+        path: "/user/result",
+        element: <Result theme="dark" />,
       },
     ],
   },

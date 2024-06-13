@@ -19,7 +19,7 @@ const User = ({ theme = "dark" }) => {
   return (
     <div
       style={{ backgroundColor: styles.backgroundColor }}
-      className="h-[100vh] mr-12 rounded-lg pt-3"
+      className="h-[100vh] mr-10 rounded-lg pt-3"
     >
       <div className="container mx-auto py-4">
         <div className="flex justify-center items-center">
@@ -130,7 +130,7 @@ const User = ({ theme = "dark" }) => {
                   Result And Certificates
                 </p>
                 <p className="mb-0">
-                  <a href="#!results" className="text-gray-500">
+                  <a href="user/result" target="_blank" className="text-gray-500">
                     Show all
                   </a>
                 </p>
