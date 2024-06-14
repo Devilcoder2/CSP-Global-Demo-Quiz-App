@@ -1,66 +1,7 @@
 import React, { useState } from "react";
 import "./User.css";
+import {userResult} from "../utils/constants.js"
 
-const user = [
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
-  },
-  {
-    imgUrl:"https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp",
-  },
-  {
-    imgUrl:
-      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
-  },
-  {
-    imgUrl:"https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-  },
-];
 
 const User = ({ theme = "dark" }) => {
   // Define theme colors
@@ -80,7 +21,7 @@ const User = ({ theme = "dark" }) => {
   const [resultSize, setResultSize] = useState(4);
   const handleClick = ()=>{
     console.log(resultSize)
-    setResultSize(prevResultSize => (prevResultSize === 4 ? user.length : 4));
+    setResultSize(prevResultSize => (prevResultSize === 4 ? userResult.length : 4));
     console.log(resultSize)
   }
   return (
@@ -202,26 +143,29 @@ const User = ({ theme = "dark" }) => {
                 >
                   Result And Certificates
                 </p>
-                <p className="mb-0">
-                  <a
-                    href="#"
-                    className="text-gray-500"
-                    onClick={handleClick}
-                    style={{ cursor: "pointer"}}
-                  >
-                    {
-                     resultSize <=4 ? "Show all":"Show less"
-                    }
-                  </a>
-                </p>
+                <button
+                  onClick={handleClick}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    padding: 0,
+                    font: "inherit",
+                    color: "inherit",
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    color: "gray",
+                  }}
+                >
+                  {resultSize <= 4 ? "Show all" : "Show less"}
+                </button>
               </div>
               <div className="grid grid-cols-2 gap-2">
-              {user.slice(0, resultSize).map((user, index) => (
+              {userResult.slice(0, resultSize).map((user, index) => (
                   <div key={index} className="mb-2">
                     <img
                       src={user.imgUrl}
                       alt={`image ${index + 1}`}
-                      className="w-full rounded-lg"
+                      className="w-full rounded-lg cursor-pointer"
                     />
                   </div>
                 ))}
