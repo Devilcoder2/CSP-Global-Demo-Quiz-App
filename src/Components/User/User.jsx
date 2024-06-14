@@ -1,4 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import "./User.css";
+
+const user = [
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
+  },
+  {
+    imgUrl:"https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp",
+  },
+  {
+    imgUrl:
+      "https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp",
+  },
+  {
+    imgUrl:"https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
+  },
+];
 
 const User = ({ theme = "dark" }) => {
   // Define theme colors
@@ -15,11 +77,22 @@ const User = ({ theme = "dark" }) => {
   };
 
   const styles = theme === "dark" ? darkThemeStyles : lightThemeStyles;
-
+  const [resultSize, setResultSize] = useState(4);
+  const handleClick = ()=>{
+    console.log(resultSize)
+    setResultSize(prevResultSize => (prevResultSize === 4 ? user.length : 4));
+    console.log(resultSize)
+  }
   return (
     <div
-      style={{ backgroundColor: styles.backgroundColor }}
-      className="h-[100vh] mr-10 rounded-lg pt-3"
+      style={{
+        backgroundColor: styles.backgroundColor,
+        overflowY: "auto",
+        height: "100vh",
+        scrollbarWidth: "none", // For Firefox
+        msOverflowStyle: "none", // For IE and Edge
+      }}
+      className="user-container"
     >
       <div className="container mx-auto py-4">
         <div className="flex justify-center items-center">
@@ -130,40 +203,28 @@ const User = ({ theme = "dark" }) => {
                   Result And Certificates
                 </p>
                 <p className="mb-0">
-                  <a href="user/result" target="_blank" className="text-gray-500">
-                    Show all
+                  <a
+                    href="#"
+                    className="text-gray-500"
+                    onClick={handleClick}
+                    style={{ cursor: "pointer"}}
+                  >
+                    {
+                     resultSize <=4 ? "Show all":"Show less"
+                    }
                   </a>
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-2">
-                <div className="mb-2">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                    alt="image 1"
-                    className="w-full rounded-lg"
-                  />
-                </div>
-                <div className="mb-2">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                    alt="image 1"
-                    className="w-full rounded-lg"
-                  />
-                </div>
-                <div className="mb-2">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                    alt="image 1"
-                    className="w-full rounded-lg"
-                  />
-                </div>
-                <div className="mb-2">
-                  <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                    alt="image 1"
-                    className="w-full rounded-lg"
-                  />
-                </div>
+              {user.slice(0, resultSize).map((user, index) => (
+                  <div key={index} className="mb-2">
+                    <img
+                      src={user.imgUrl}
+                      alt={`image ${index + 1}`}
+                      className="w-full rounded-lg"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
