@@ -8,6 +8,7 @@ import AllQuestions from "./Components/AllQuestions/AllQuestions.jsx";
 import User from "./Components/User/User.jsx";
 import LiveTest from "./Components/Test/LiveTest.jsx";
 import Result from "./Components/User/Result.jsx";
+import Login from "./Components/User/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
         path: "/user/result/:index",
         element: <Result theme="dark" />,
       },
+      {
+        path: "/user/login",
+        element: <Login theme="dark" />,
+      }
     ],
   },
   {
