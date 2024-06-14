@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         element: <User theme="dark" />,
       },
       {
-        path: "/user/result",
+        path: "/user/result/:index",
         element: <Result theme="dark" />,
       },
     ],

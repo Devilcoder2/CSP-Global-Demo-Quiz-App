@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from "react-router-dom"
 import "./User.css";
 import {userResult} from "../utils/constants.js"
 
@@ -19,11 +20,15 @@ const User = ({ theme = "dark" }) => {
 
   const styles = theme === "dark" ? darkThemeStyles : lightThemeStyles;
   const [resultSize, setResultSize] = useState(4);
+  const navigate = useNavigate()
   const handleClick = ()=>{
     console.log(resultSize)
     setResultSize(prevResultSize => (prevResultSize === 4 ? userResult.length : 4));
     console.log(resultSize)
   }
+  const handleImageClick = (index) => {
+    navigate(`/user/result/${index}`);
+  };
   return (
     <div
       style={{
@@ -166,6 +171,7 @@ const User = ({ theme = "dark" }) => {
                       src={user.imgUrl}
                       alt={`image ${index + 1}`}
                       className="w-full rounded-lg cursor-pointer"
+                      onClick={() => handleImageClick(index)}
                     />
                   </div>
                 ))}
