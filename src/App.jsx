@@ -59,7 +59,7 @@ const App = () => {
         </div>
       </div>
 
-      <div className="ml-80 h-screen overflow-y-hidden">
+      <div className="ml-80 h-[100vh] overflow-y-scroll">
         <Outlet />
       </div>
     </div>
