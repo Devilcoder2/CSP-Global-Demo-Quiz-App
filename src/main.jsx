@@ -6,6 +6,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Test from "./Components/Test/Test.jsx";
 import AllQuestions from "./Components/AllQuestions/AllQuestions.jsx";
 import User from "./Components/User/User.jsx";
+import LiveTest from "./Components/Test/LiveTest.jsx";
+import Result from "./Components/User/Result.jsx";
+import Login from "./Components/User/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,9 +25,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/user",
-        element: <User theme="dark"/>,
+        element: <User theme="dark" />,
       },
+      {
+        path: "/user/result/:index",
+        element: <Result theme="dark" />,
+      },
+      {
+        path: "/user/login",
+        element: <Login theme="dark" />,
+      }
     ],
+  },
+  {
+    path: "/liveTest",
+    element: <LiveTest />,
   },
 ]);
 
@@ -32,4 +47,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
-)
+);
